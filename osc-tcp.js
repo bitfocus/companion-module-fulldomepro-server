@@ -1,5 +1,5 @@
 const osc = require('osc')
-const { onDataHandler } = require('./osc-feedback.js')
+const { onDataHandler } = require('./osc-receive.js')
 
 class OSCTCPClient {
 	constructor(root, host, port, listen) {
@@ -61,7 +61,7 @@ class OSCTCPClient {
 			return
 		}
 
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			this.tcpPort.close()
 			this.connected = false
 

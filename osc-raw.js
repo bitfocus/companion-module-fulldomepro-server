@@ -1,10 +1,10 @@
 const OSC = require('osc-js')
 const net = require('net')
-const { onDataHandler } = require('./osc-feedback.js')
+const { onDataHandler } = require('./osc-receive.js')
 
 class OSCRawClient {
 	constructor(root, host, port, listen) {
-		     this.root = root
+		this.root = root
 		this.host = host
 		this.port = port
 		this.listen = listen
@@ -57,7 +57,7 @@ class OSCRawClient {
 			return
 		}
 
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			this.client.destroy()
 			this.connected = false
 

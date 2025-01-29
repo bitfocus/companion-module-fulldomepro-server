@@ -54,7 +54,7 @@ class OSCUDPClient {
 			return
 		}
 
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve) => {
 			this.socket.close()
 			this.connected = false
 			this.root.log('info', 'UDP connection closed manually')

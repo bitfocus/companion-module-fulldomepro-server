@@ -76,20 +76,20 @@ function setupOSC(instance) {
 			instance.config.feedbackPort,
 			instance.config.listen,
 		)
-	// } else if (instance.config.protocol === 'tcp') {
-	// 	instance.client = new OSCTCPClient(
-	// 		instance,
-	// 		instance.targetServer,
-	// 		instance.config.targetPort,
-	// 		instance.config.listen,
-	// 	)
-	// } else if (instance.config.protocol === 'tcp-raw') {
-	// 	instance.client = new OSCRawClient(
-	// 		instance,
-	// 		instance.targetServer,
-	// 		instance.config.targetPort,
-	// 		instance.config.listen,
-	// 	)
+		// } else if (instance.config.protocol === 'tcp') {
+		// 	instance.client = new OSCTCPClient(
+		// 		instance,
+		// 		instance.targetServer,
+		// 		instance.config.targetPort,
+		// 		instance.config.listen,
+		// 	)
+		// } else if (instance.config.protocol === 'tcp-raw') {
+		// 	instance.client = new OSCRawClient(
+		// 		instance,
+		// 		instance.targetServer,
+		// 		instance.config.targetPort,
+		// 		instance.config.listen,
+		// 	)
 	} else {
 		instance.client = null
 		instance.updateStatus('bad_config')
@@ -116,4 +116,13 @@ function isPlaying(playerState) {
 		return true
 	}
 }
-module.exports = { resolveHostname, isValidIPAddress, parseArguments, evaluateComparison, setupOSC, massageValue, wrap360, isPlaying }
+module.exports = {
+	resolveHostname,
+	isValidIPAddress,
+	parseArguments,
+	evaluateComparison,
+	setupOSC,
+	massageValue,
+	wrap360,
+	isPlaying,
+}

@@ -1,6 +1,6 @@
 module.exports = function (self) {
 	self.setVariableDefinitions([
-	// Fullset of variable listed here for reference but only some implemented at this time
+		// Full set of variable listed here for reference but only some implemented at this time
 		{
 			variableId: 'status',
 			name: 'The status of the Media Player (0=Inital, 1=Play, 2=Stop, 3=Pause, 4=FadeIn2Play, 5=FadeOutToPause, 6=FadeOut2Stop, 7=FadeToNextLoop)',

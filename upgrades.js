@@ -1,5 +1,5 @@
 module.exports = [
-	function ( ) {
+	function () {
 		// This is a placeholder than now cannot be used/removed
 		return {
 			updatedConfig: null,

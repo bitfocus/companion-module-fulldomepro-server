@@ -1,12 +1,11 @@
 const { InstanceBase, Regex, runEntrypoint } = require('@companion-module/base')
 const { resolveHostname, isValidIPAddress, setupOSC } = require('./helpers.js')
-const UpgradeScripts = require('./upgrades.js');
+const UpgradeScripts = require('./upgrades.js')
 const { updateActions } = require('./actions.js')
 const { updateFeedbacks } = require('./feedbacks.js')
 const { ProcessReceivedData } = require('./osc-process.js')
 const UpdateVariableDefinitions = require('./variables.js')
 const { updatePresets } = require('./presets.js')
-
 
 class OSCInstance extends InstanceBase {
 	constructor(internal) {
@@ -20,7 +19,7 @@ class OSCInstance extends InstanceBase {
 		this.client
 
 		this.onDataReceived = {} // Store received data for processing
-		this.messages = {}	// Store the current state of the messages
+		this.messages = {} // Store the current state of the messages
 		this.variablesToUpdate = {} // Store the variables to update
 
 		this.processReceivedData
@@ -121,15 +120,13 @@ class OSCInstance extends InstanceBase {
 		}
 	}
 
-	
 	async processReceivedData() {
 		ProcessReceivedData(this)
 	}
-	
+
 	updateVariableDefinitions() {
 		UpdateVariableDefinitions(this)
 	}
-	
 
 	// Return config fields for web config
 	getConfigFields() {
@@ -181,9 +178,6 @@ class OSCInstance extends InstanceBase {
 			},
 		]
 	}
-	
-
 }
 runEntrypoint(OSCInstance, UpgradeScripts)
-// This is the entrypoint for the module. This is where the module should be initialized                                        
-
+// This is the entrypoint for the module. This is where the module should be initialized
