@@ -3,11 +3,12 @@ const dgram = require('dgram')
 const { onDataHandler } = require('./osc-receive.js')
 
 class OSCUDPClient {
-	constructor(root, host, port, listen) {
+	constructor(root, host, port, listen, filter) {
 		this.root = root
 		this.host = host
 		this.port = port
 		this.listen = listen
+		this.filter = filter
 		this.udpPort = null
 		this.connected = false
 		this.socket = null
@@ -34,7 +35,8 @@ class OSCUDPClient {
 			this.socket.on('message', (msg, rinfo) => {
 				this.root.log('debug', `Received UDP message from ${rinfo.address}:${rinfo.port}`)
 
-				if (this.listen) {
+				if (this.listen && (!this.filter || rinfo.address === this.host)) {
+					this.root.log('debug', `Handle message from ${rinfo.address}`)
 					onDataHandler(this.root, msg)
 				}
 			})

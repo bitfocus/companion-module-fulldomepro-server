@@ -75,6 +75,7 @@ function setupOSC(instance) {
 			instance.targetServer,
 			instance.config.feedbackPort,
 			instance.config.listen,
+			instance.config.filter,
 		)
 		// } else if (instance.config.protocol === 'tcp') {
 		// 	instance.client = new OSCTCPClient(

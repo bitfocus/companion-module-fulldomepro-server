@@ -68,7 +68,7 @@ function updateActions(self) {
 					label: 'Playlist',
 					id: 'playlist',
 					default: 'Playlist Name',
-					useVariables: false,
+					useVariables: true,
 				},
 				{
 					type: 'textinput',
@@ -76,7 +76,7 @@ function updateActions(self) {
 					id: 'playlistItem',
 					default: '0',
 					regex: Regex.NUMBER,
-					useVariables: false,
+					useVariables: true,
 				},
 			],
 			callback: async (event) => {

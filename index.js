@@ -168,6 +168,22 @@ class OSCInstance extends InstanceBase {
 				default: false,
 			},
 			{
+				type: 'static-text',
+				id: 'filterMsg',
+				label: 'Filter messages from the host IP address only',
+				width: 8,
+				value: 'Select this option if there is more than one server on the network or static IP is not used',
+				isVisible: (options) => options.listen,
+			},
+			{
+				type: 'checkbox',
+				id: 'filter',
+				label: 'Filter feedback',
+				width: 4,
+				default: false,
+				isVisible: (options) => options.listen,
+			},
+			{
 				type: 'textinput',
 				id: 'feedbackPort',
 				label: 'Receive Port',
