@@ -7,7 +7,7 @@ This module controls Fulldome.pro Projection Servers.
 **Target IP:** Enter the target IP of the Fulldome.pro Projection Server to control. 
 *This will almost always be 192.168.10.10 and the device running Companion must be on the same subnet.*
 **Listen for Feedback** Listen for OSC messages broadcast by Fulldome.pro Projection Server.
-*This is required for updating variables which keep server state. If not using this option server state must be managed manaually.*
+*This is required for updating variables which keep server state. If not using this option server state must be managed manually.*
  
 ## Actions
 Thes actions have been created to allow the user to configure buttons without needing to know the underlying OSC paths and in many cases without knowing the parameters or parameter types. 
@@ -46,7 +46,6 @@ The volume level is represented in the interface as an integer from 0 (minimum) 
     Decreases the volume by 1 step in 100.
 - Sound: Volume increase<br />
     Increases the volume by 1 step in 100.
-*Note: Volume level on the server may not be in sync with the value stored in Companion, particulary when the server has just started or if another client has changed it. This means that the first use of the Volume increase and Volume decrease actions may result in big jumps in sound levels. This will be rectified in future releases.*
 ### Stagelight
 Showing and hiding the stagelight does not stop or restart playback. Consider adding multiple actions to a button to pause playback when the stagelight is switched on and resume playback when it is stopped.
 - Stagelight: OFF<br />
@@ -127,6 +126,7 @@ More variables will be added in future releases.
 ### Sound
 - Volume Up
 - Volume Down
+- Volume (rotary)
 - Mute Toggle
 - Mute
 - Unmute
@@ -158,8 +158,7 @@ More variables will be added in future releases.
 ## How the Fulldome.pro Projection Server uses OSC
 Fulldome.pro Projection Servers use OSC to show their status to external devices. The Projection Server also responds to OSC commands from external sources such as Companion.
 
-There are no special methods for actively polling available servers. Instead, each server periodically (every 1 second) sends a broadcast alive packet with information
-about itself. Thus, any willing client can "listen to the broadcast" on this port for a while, determine which servers are available, choose one of them and work with it.
+There are no special methods for actively polling available servers. Instead, each server periodically (every 1 second) sends a broadcast alive packet with information about itself. Thus, any willing client can "listen to the broadcast" on this port for a while, determine which servers are available, choose one of them and work with it.
 In theory the send and receive ports for OSC messages could change, but in practice they don't, and are not configurable by the user. So for the time being cannot be set in this module. 
 
 All subsequent messages from the server are received on another port, which can be received from the alive packet. No semblance of a connection to the server is established. The server does NOT communicate personally with a particular client - it always sends broadcast messages, receives, and processes any suitable OSC messages - without understanding where and from whom they are.
